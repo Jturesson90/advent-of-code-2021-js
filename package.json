@@ -19,6 +19,7 @@
     "prettier": "^2.4.1"
   },
   "dependencies": {
-    "@types/jest": "^27.0.3"
+    "@types/jest": "^27.0.3",
+    "lodash": "^4.17.21"
   }
 }
