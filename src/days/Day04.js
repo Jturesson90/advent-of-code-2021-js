@@ -122,8 +122,7 @@ export const puzzleB = input => {
         }
     }
 
-    const result =
+    return (
         lastFound.bingoDraw * lastFound.board.rows.flat().reduce((prevB, curB) => prevB + curB, 0)
-
-    return result
+    )
 }

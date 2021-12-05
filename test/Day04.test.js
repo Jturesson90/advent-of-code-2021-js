@@ -24,7 +24,7 @@ test('day04 puzzle b example', () => {
 })
 test('day04 puzzle b', () => {
     // Arrange
-    const expected = ''
+    const expected = 5586
     const puzzleInput = getPuzzleInputText(day)
     // Act
     const result = puzzleB(puzzleInput)
