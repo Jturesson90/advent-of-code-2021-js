@@ -15,14 +15,13 @@ export const puzzleA = ({ input, days }) => {
             }
         }
         arrayCopy = arrayCopy.concat(toBeAdded)
-        console.log(`Day ${i + 1}: ${arrayCopy.length}`)
     }
     return arrayCopy.length
 }
 export const puzzleB = ({ input, days }) => {
     const arr = convertToNumberArray(input, ',')
     if (!Array.isArray(arr)) return 0
-    return countLanternfish(arr, 256)
+    return countLanternfish(arr, days)
 }
 
 const countLanternfish = (initialState, days, rate = 7) => {
