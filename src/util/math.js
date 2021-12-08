@@ -1,10 +1,4 @@
-export const triangleNumber = (num, cache = {}) => {
-    if (num === 1) return 1
-    else if (num < 0) return -1
-    else if (num === 0) return 0
-    else if (cache[num] !== undefined) return cache[num]
-    return (cache[num] = num + triangleNumber(num - 1, cache))
-}
+export const triangleNumber = n => (Number.isInteger(n) ? (n * (n + 1)) / 2 : 0)
 
 export const factorial = (num, cache = {}) => {
     if (cache[num] !== undefined) return cache[num]
