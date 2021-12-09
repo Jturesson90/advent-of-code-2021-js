@@ -9,10 +9,12 @@ import path from 'path'
 export const getPuzzleInputText = (day, example) => readFile(day, example)
 export const convertToStringArray = (text, splitter) => {
     const t = text + ''
-    return t.split(splitter || '\n')
+    return t.split(splitter !== undefined ? splitter : '\n')
 }
 export const convertToNumberArray = (text, splitter) => {
-    return (text + '').split(splitter || '\n').map(a => Number.parseFloat(a))
+    return (text + '')
+        .split(splitter !== undefined ? splitter : '\n')
+        .map(a => Number.parseFloat(a))
 }
 function readFile(day, example) {
     const filePath = path.join(__dirname, getFilePath(day, example))
@@ -34,3 +36,6 @@ function getFilePath(day, example) {
     }
     return null
 }
+
+export const convertToMultidimensionalNumberArray = (text, rowSplitter, columnSplitter) =>
+    convertToStringArray(text, rowSplitter).map(a => convertToNumberArray(a, columnSplitter))
