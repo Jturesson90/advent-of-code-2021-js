@@ -27,9 +27,9 @@ export const puzzleB = input => {
             if (a) basins.push(a)
         }
     }
-    const sort = sortNumbers(basins)
-    const rev = reverse(sort)
-    const threeBiggest = take(rev, 3)
+    const sorted = sortNumbers(basins)
+    const reversed = reverse(sorted)
+    const threeBiggest = take(reversed, 3)
     const result = sumMultiply(threeBiggest)
     return result
 }
