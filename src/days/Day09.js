@@ -1,6 +1,6 @@
 import * as _ from 'lodash'
 import { convertToMultidimensionalNumberArray } from '../puzzleInputs'
-import { sum, addEach, take, sumMultiply, sortNumbers, isInsideGrid, reverse } from '../util/math'
+import { sum, addEach, take, sumMultiply, sortNumbersFn, isInsideGrid } from '../util/math'
 
 export const puzzleA = input => {
     const arr = convertToMultidimensionalNumberArray(input, '\n', '')
@@ -27,8 +27,8 @@ export const puzzleB = input => {
             if (a) basins.push(a)
         }
     }
-    const sorted = sortNumbers(basins)
-    const reversed = reverse(sorted)
+
+    const reversed = basins.sort(sortNumbersFn).reverse()
     const threeBiggest = take(reversed, 3)
     const result = sumMultiply(threeBiggest)
     return result

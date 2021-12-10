@@ -26,6 +26,7 @@ export const sumMultiply = (arr, n) => {
 export const sortNumbers = arr => {
     return arr.sort((a, b) => a - b)
 }
+export const sortNumbersFn = (a, b) => a - b
 export const isInsideGrid = (row, col, rowLength, colLength) =>
     row > -1 && row < rowLength && col > -1 && col < colLength
 
