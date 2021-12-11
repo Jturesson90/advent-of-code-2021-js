@@ -36,6 +36,7 @@ function getFilePath(day, example) {
     }
     return null
 }
-
+export const convertToMultidimensionalStringArray = (text, rowSplitter, columnSplitter) =>
+    convertToStringArray(text, rowSplitter).map(a => convertToStringArray(a, columnSplitter))
 export const convertToMultidimensionalNumberArray = (text, rowSplitter, columnSplitter) =>
     convertToStringArray(text, rowSplitter).map(a => convertToNumberArray(a, columnSplitter))
