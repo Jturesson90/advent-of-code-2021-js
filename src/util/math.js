@@ -31,3 +31,27 @@ export const isInsideGrid = (row, col, rowLength, colLength) =>
     row > -1 && row < rowLength && col > -1 && col < colLength
 
 export const reverse = arr => arr.reverse()
+
+export const depthFirstSearch = (
+    curr = '',
+    dest = '',
+    source = {},
+    path = [],
+    callback = (connection, path) => false,
+    paths = [],
+) => {
+    if (curr === dest) {
+        paths.push(path)
+    } else {
+        const connections = source[curr]
+        const len = connections.length
+        for (let index = 0; index < len; index++) {
+            const connection = connections[index]
+            if (callback !== undefined && callback(connection, path)) continue
+            path.push(connection)
+            depthFirstSearch(connection, dest, source, path, callback, paths)
+            path.pop()
+        }
+    }
+    return paths
+}

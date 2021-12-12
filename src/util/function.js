@@ -17,3 +17,6 @@ export function removeItem(arr, value) {
     return arr
 }
 export const peek = arr => (arr.length >= 0 ? arr[arr.length - 1] : null)
+export const hasDuplicates = array => {
+    return new Set(array).size !== array.length
+}

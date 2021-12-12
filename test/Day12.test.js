@@ -2,6 +2,17 @@ import { puzzleA, puzzleB } from '../src/days/Day12'
 import { getPuzzleInputText } from '../src/puzzleInputs'
 
 const day = '12'
+test('day12 puzzle a', () => {
+    // Arrange
+    const expected = 3713
+    const puzzleInput = getPuzzleInputText(day)
+    // Act
+    const result = puzzleA(puzzleInput)
+
+    // Assert
+    expect(result).toBe(expected)
+})
+
 test('day12 puzzle a example 1', () => {
     // Arrange
     const expected = 10
@@ -12,20 +23,9 @@ test('day12 puzzle a example 1', () => {
     // Assert
     expect(result).toBe(expected)
 })
-
-test('day12 puzzle a example 1', () => {
-    // Arrange
-    const expected = 10
-    const puzzleInput = getPuzzleInputText(day)
-    // Act
-    const result = puzzleA(puzzleInput)
-
-    // Assert
-    expect(result).toBe(expected)
-})
 test('day12 puzzle b', () => {
     // Arrange
-    const expected = ''
+    const expected = 91292
     const puzzleInput = getPuzzleInputText(day)
     // Act
     const result = puzzleB(puzzleInput)

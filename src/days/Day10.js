@@ -36,11 +36,6 @@ export const puzzleA = input => {
                 if (peek(stack) === pairLookup[codeChar]) {
                     stack.pop()
                 } else {
-                    console.log(
-                        `${codeLine.join('')}- Expected ${peek(
-                            stack,
-                        )}, but found ${codeChar} instead.`,
-                    )
                     endStack.push(pointsLookup[codeChar])
                     break
                 }
