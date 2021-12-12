@@ -4,8 +4,18 @@ import { getPuzzleInputText } from '../src/puzzleInputs'
 const day = '11'
 test('day11 puzzle a', () => {
     // Arrange
-    const expected = ''
+    const expected = 1469
     const puzzleInput = getPuzzleInputText(day)
+    // Act
+    const result = puzzleA(puzzleInput)
+
+    // Assert
+    expect(result).toBe(expected)
+})
+test('day11 puzzle a example 1', () => {
+    // Arrange
+    const expected = 1656
+    const puzzleInput = getPuzzleInputText(day, 1)
     // Act
     const result = puzzleA(puzzleInput)
 
@@ -14,7 +24,7 @@ test('day11 puzzle a', () => {
 })
 test('day11 puzzle b', () => {
     // Arrange
-    const expected = ''
+    const expected = 256
     const puzzleInput = getPuzzleInputText(day)
     // Act
     const result = puzzleB(puzzleInput)
