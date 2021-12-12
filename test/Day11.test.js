@@ -4,7 +4,7 @@ import { getPuzzleInputText } from '../src/puzzleInputs'
 const day = '11'
 test('day11 puzzle a', () => {
     // Arrange
-    const expected = 1469
+    const expected = 1649
     const puzzleInput = getPuzzleInputText(day)
     // Act
     const result = puzzleA(puzzleInput)
