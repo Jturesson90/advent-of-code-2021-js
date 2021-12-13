@@ -4,7 +4,7 @@ import { getPuzzleInputText } from '../src/puzzleInputs'
 const day = '13'
 test('day13 puzzle a', () => {
     // Arrange
-    const expected = ''
+    const expected = 737
     const puzzleInput = getPuzzleInputText(day)
     // Act
     const result = puzzleA(puzzleInput)
@@ -12,9 +12,32 @@ test('day13 puzzle a', () => {
     // Assert
     expect(result).toBe(expected)
 })
+test('day13 puzzle a example 1', () => {
+    // Arrange
+    const expected = 17
+    const puzzleInput = getPuzzleInputText(day, 1)
+    // Act
+    const result = puzzleA(puzzleInput)
+
+    // Assert
+    expect(result).toBe(expected)
+})
+test('day13 puzzle b example 1', () => {
+    // Arrange
+    const expected = '#####\n#...#\n#...#\n#...#\n#####\n.....\n.....\n'
+
+    const puzzleInput = getPuzzleInputText(day, 1)
+    // Act
+    const result = puzzleB(puzzleInput)
+
+    // Assert
+    expect(result).toBe(expected)
+})
 test('day13 puzzle b', () => {
     // Arrange
-    const expected = ''
+    const expected =
+        '####.#..#...##.#..#..##..####.#..#.###..\n...#.#..#....#.#..#.#..#.#....#..#.#..#.\n..#..#..#....#.#..#.#..#.###..####.#..#.\n.#...#..#....#.#..#.####.#....#..#.###..\n#....#..#.#..#.#..#.#..#.#....#..#.#....\n####..##...##...##..#..#.#....#..#.#....\n'
+
     const puzzleInput = getPuzzleInputText(day)
     // Act
     const result = puzzleB(puzzleInput)
