@@ -41,7 +41,7 @@ export const depthFirstSearch = (
     paths = [],
 ) => {
     if (curr === dest) {
-        paths.push(path)
+        paths.push([...path])
     } else {
         const connections = source[curr]
         const len = connections.length
