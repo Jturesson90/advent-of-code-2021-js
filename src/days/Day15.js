@@ -12,7 +12,6 @@ export const puzzleA = input => {
             right: null,
         })),
     )
-    // Link grid nodes
     for (let x = 0; x < grid.length; x++) {
         for (let y = 0; y < grid.length; y++) {
             const node = grid[y][x]
@@ -36,32 +35,26 @@ export const puzzleA = input => {
     nodeQueue.push(grid[0][0])
 
     while (nodeQueue.length > 0) {
-        // Stop when the exit is visited
         if (exit.visited) {
             break
         }
-
-        // Get the next unvisited node
         const current = nodeQueue[0]
         if (current.visited) {
             nodeQueue.shift()
             continue
         }
 
-        // Update risks of all connections
         if (current.up && !current.up.visited) {
             updatePathRisk(current, current.up)
             nodeQueue.push(current.up)
-        }
-        if (current.down) {
+        } else if (current.down) {
             updatePathRisk(current, current.down)
             nodeQueue.push(current.down)
         }
         if (current.right) {
             updatePathRisk(current, current.right)
             nodeQueue.push(current.right)
-        }
-        if (current.left) {
+        } else if (current.left) {
             updatePathRisk(current, current.left)
             nodeQueue.push(current.left)
         }
@@ -82,29 +75,22 @@ export const puzzleB = input => {
             const row2 = gridNums[y2] || (gridNums[y2] = [])
             for (let x = 0; x < initialSize; x++) {
                 for (let rX = 0; rX < 5; rX++) {
-                    // Skip 0,0 (don't project into the source)
                     if (rY === 0 && rX === 0) {
                         continue
                     }
-
-                    // Compute location to project to
                     const x2 = rX * initialSize + x
 
-                    // Compute the new risk value
                     const increase = rX + rY
                     let newRisk = row1[x] + increase
                     if (newRisk > 9) {
                         newRisk -= 9
                     }
 
-                    // Project the value
                     row2[x2] = newRisk
                 }
             }
         }
     }
-
-    /** @type {Node[][]} */
     const grid = gridNums.map(row =>
         row.map(risk => ({
             risk,
@@ -142,7 +128,6 @@ export const puzzleB = input => {
     nodeQueue.add(grid[0][0])
 
     function pickNextFromQueue() {
-        /** @type {Node | null} */
         let next = null
         for (const node of nodeQueue) {
             if (next === null || node.pathRisk < next.pathRisk) {
@@ -153,15 +138,10 @@ export const puzzleB = input => {
     }
 
     while (nodeQueue.size > 0) {
-        // Stop when the exit is visited
         if (exit.visited) {
             break
         }
-
-        // Get next node
         const current = pickNextFromQueue()
-
-        // Update all connections
         if (current.up && !current.up.visited) {
             updateConnection(current, current.up)
             nodeQueue.add(current.up)
@@ -178,12 +158,9 @@ export const puzzleB = input => {
             updateConnection(current, current.left)
             nodeQueue.add(current.left)
         }
-
-        // Mark as visited
         current.visited = true
-
-        // Remove from visited AFTER complete
         nodeQueue.delete(current)
     }
+
     return exit.pathRisk
 }
