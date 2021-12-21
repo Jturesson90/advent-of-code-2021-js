@@ -23,11 +23,16 @@ export const hasDuplicates = array => {
 export function createAndFillTwoDArray({ rows, columns, defaultValue }) {
     return Array.from({ length: rows }, () => Array.from({ length: columns }, () => defaultValue))
 }
-export const getMax = (arr, key) =>
+export const getMax = (arr, key = undefined) =>
     arr.reduce((prev, curr) => {
         const val = key !== undefined ? curr[key] : curr
         return val > prev ? val : prev
-    }, 0)
+    }, Number.MIN_SAFE_INTEGER)
+export const getMin = (arr, key = undefined) =>
+    arr.reduce((prev, curr) => {
+        const val = key !== undefined ? curr[key] : curr
+        return val < prev ? val : prev
+    }, Number.MAX_SAFE_INTEGER)
 
 export const incrementKey = (pairs, key, value = 1) => ({
     ...pairs,
